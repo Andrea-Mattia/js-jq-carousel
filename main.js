@@ -27,6 +27,21 @@ $(document).ready(function() {
         nextPrevSlide('prev');
     });
 
+    // Navigazione con keyboard
+    $(document).keydown(function(element) {
+        // Con questo posso visualizzare il keycode corrispondente al tasto
+        // console.log(element.keyCode);
+
+        // If statement per cambiare immagine con le frecce
+        // Freccia sinistra
+        if (element.keyCode === 37) {
+            nextPrevSlide('prev');
+        } else if (element.keyCode === 39) {
+            nextPrevSlide('next');
+        }
+    });
+
+
     // End doc ready
 });
 

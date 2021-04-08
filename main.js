@@ -23,6 +23,10 @@ $(document).ready(function() {
         nextPrevSlide('next');
     });
 
+    prev.click(function() {
+        nextPrevSlide('prev');
+    });
+
     // End doc ready
 });
 
@@ -51,6 +55,16 @@ function nextPrevSlide(direction) {
             // Aggiunge la classe active al prossimo elemento
             activeImg.next('img').addClass('active');
             activeCircle.next('i').addClass('active');
+        }
+    }
+    // Else if per la parte prev
+    else if (direction === 'prev') {
+        if (activeImg.hasClass('first')) {
+            $('.images img.last').addClass('active');
+            $('.nav i.last').addClass('active');
+        } else {
+            activeImg.prev('img').addClass('active');
+            activeCircle.prev('i').addClass('active');
         }
     }
 }

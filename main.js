@@ -18,7 +18,6 @@ $(document).ready(function() {
     var next = $('.next');
     var prev = $('.prev');
     var circle = $('.nav i.fa-circle');
-    var img = $('.images img');
 
     // Navigazione tra le slide con il mouse
     next.click(function() {

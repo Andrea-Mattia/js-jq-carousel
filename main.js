@@ -14,8 +14,43 @@
 
 $(document).ready(function() {
 
-    console.log('Works');
-    console.log('jQuery', $);
+    // References
+    var next = $('.next');
+    var prev = $('.prev');
+
+    // Navigazione tra le slide con il mouse
+    next.click(function() {
+        nextPrevSlide('next');
+    });
 
     // End doc ready
 });
+
+/*******************************
+ * FUNCTIONS
+ *******************************/
+
+function nextPrevSlide(direction) {
+    
+    // Refs per le immagini e i cerchi attivi
+    var activeImg = $('.images img.active');
+    var activeCircle = $('.nav i.active');
+
+    // Reset della classe active
+    activeImg.removeClass('active');
+    activeCircle.removeClass('active');
+
+    // If statement per la parte next
+    if (direction === 'next') {
+        // If statement per spostare l'active nel caso in cui
+        // l'immagine o il cerchio siano gli ultimi, in modo da tornare alla prima
+        if (activeImg.hasClass('last')) {
+            $('.images img.first').addClass('active');
+            $('.nav i.first').addClass('active');
+        } else {
+            // Aggiunge la classe active al prossimo elemento
+            activeImg.next('img').addClass('active');
+            activeCircle.next('i').addClass('active');
+        }
+    }
+}
